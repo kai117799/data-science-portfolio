@@ -47,9 +47,26 @@ single measurement is not enough for confident identification.
   depth reaches **93.6% accuracy**, showing how informative bill shape is.
 - Flipper length correlates strongly with body mass (**r = 0.87**), and the
   relationship holds within each species.
-- **Limitation:** the sample is observational, unevenly sized and limited to
-  three islands, so the classifier describes separation in this dataset
-  rather than a validated field identification tool.
+
+**Limitations**
+
+- **No independent test set.** The 93.6% score is a leave-one-out,
+  in-sample estimate on the same 342 birds. It is not an independent test
+  result and should not be treated as generalisation performance.
+- **Class imbalance.** The classes contain 151 Adelie, 68 Chinstrap and 123
+  Gentoo birds. Chinstrap is underrepresented, so overall accuracy is
+  dominated by Adelie and Gentoo.
+- **Limited feature set.** The classifier uses only bill length and bill
+  depth; sex, island and collection year are not controlled.
+- **Listwise deletion.** Two rows with missing values were removed, which
+  may introduce a small selection bias.
+- **Limited sampling frame.** The data come from three islands and were
+  collected in 2007-2009, so the results cannot be extrapolated to other
+  populations or periods.
+- **Linear baseline.** Nearest centroid is a linear baseline and cannot
+  represent non-linear decision boundaries.
+- **Static figures.** The charts do not show confidence intervals or other
+  measures of uncertainty.
 
 [View the code and full README](https://github.com/kai117799/data-science-project)
 
